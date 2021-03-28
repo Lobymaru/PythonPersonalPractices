@@ -18,18 +18,22 @@ minas = [
 #]
 
 def procesar_minas(lista_minas):
+    """procesar_minas toma una lista de Strings, la procesa y devuelve otra lista de Strings procesada."""
     resultado = list()
     for f in range(len(lista_minas)):
         resultado.append(procesar_fila(f, lista_minas))
     return resultado
 
 def procesar_fila(index_fila, lista_minas):
+    """procesar_fila recibe como parametro una lista de Strings y un indice dentro del rango de la lista, los procesa y devuelve una cadena de caracteres."""
     fila = ''
     for c in range(len(lista_minas[index_fila])):
         fila = fila + procesar_caracter(lista_minas, index_fila, c)
     return fila
 
 def procesar_caracter(lista_minas, index_fila, index_caracter):
+    """procesar_caracter recibe una lista de Strings y dos indices, uno dentro del rango de la lista y otro dentro del rango de la cadena de caracteres.
+    devuelve un caracter numerico en base a la cantidad de caracteres vecinos que contengan un asterisco o retorna un asterisco en caso de ser el mismo ese simbolo. """
     if lista_minas[index_fila][index_caracter] == '*':
         return '*'
     else:
